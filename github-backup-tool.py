@@ -1,10 +1,25 @@
 import json
 import sys
 
+import tkinter as tk
+from tkinter import filedialog
+
 import git
 import requests
 
-localdir = "D:/Windows/Desktop/GitHub Backup/Repositories"
+root = tk.Tk()
+root.withdraw()
+
+print("Wähle einen Ordner aus, in dem die geklonten Repositories"
+      "unter /GitHub Backup/Repositories gespeichert werden sollen.")
+
+localdir = filedialog.askdirectory()
+while True:
+    if localdir:
+        localdir += "/GitHub Backup/Repositories"
+        break
+    else:
+        localdir = filedialog.askdirectory()
 
 username = input("Von welchem Profil(Name) soll ein Backup erstellt werden?: ")
 
@@ -18,7 +33,7 @@ for x in input_dict:
     if x['html_url']:
         print(x['name'])
 
-print("\nSoll der Vorgang gestartet werden? y/n")
+print(f"\nDie Repositories werden unter {localdir} gespeichert.\nSoll der Vorgang gestartet werden? y/n")
 
 choice = input()
 choice = choice.lower()
@@ -33,7 +48,7 @@ if choice == "y":
                 print(f"\nDer Ordner {localdir} ist nicht leer!")
                 sys.exit(0)
             else:
-                print("\nURL: " + x['html_url'] + "\nSpeicherort: " + localdir + "/" + x['name'])
+                print("\nName: " + x['name'] + "\nURL: " + x['html_url'] + "\nSpeicherort: " + localdir + "/" + x['name'])
     print(f"\nDas Backup wurde unter {localdir} erstellt!")
 else:
     sys.exit(0)
