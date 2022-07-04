@@ -16,7 +16,7 @@ print("Wähle einen Ordner aus, in dem die geklonten Repositories"
 localdir = filedialog.askdirectory()
 while True:
     if localdir:
-        localdir += "/GitHub Backup/Repositories"
+        localdir += "/GitHub_Backup/Repositories"
         break
     else:
         localdir = filedialog.askdirectory()
