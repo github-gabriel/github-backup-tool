@@ -11,7 +11,7 @@ root = tk.Tk()
 root.withdraw()
 
 print("Wähle einen Ordner aus, in dem die geklonten Repositories"
-      "unter /GitHub Backup/Repositories gespeichert werden sollen.")
+      "unter /GitHub_Backup/Repositories gespeichert werden sollen.")
 
 localdir = filedialog.askdirectory()
 while True:
