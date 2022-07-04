@@ -37,3 +37,5 @@ if choice == "y":
     print(f"\nDas Backup wurde unter {localdir} erstellt!")
 else:
     sys.exit(0)
+
+input()
